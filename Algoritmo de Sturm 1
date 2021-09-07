@@ -1,1 +1,31 @@
+"""
+Algoritmo de Sturm
 
+@author: Arnold Maximiliano García Hernandez
+"""
+B=[2,3,4]
+
+def derivar(A):
+    Ap=[]
+    for i in range(len(A)):
+        Ap.append(i*A[i])
+    return Ap
+
+def MetSturm(P0):
+    n=len(P0)
+    j=n-1
+    P1=derivar(P0)
+    P2aux=[]
+    for i in range(n):
+        P2aux.append(0)
+        while j>0:
+            if(P1[j]!=0):
+                P2aux[j]=(P0[j]/P1[j])
+                break;
+            j-=j
+        P2=[]
+        for i in range(n):
+            P2.append(P0[i+1]/P1[i])
+            
+            print(P2[i])
+            
